@@ -1,0 +1,173 @@
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 700 !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+}
+
+.navbar {
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+    margin-left: 0.3rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+}
+
+/* Footer */
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a :hover {
+    text-decoration: underline;
+    color: #fe424d;
+}
+
+.f-info-links, .f-info-socials {
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+
+.f-info-socials i {
+    font-size: 1.2rem;
+    margin-right: 1.2rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* card */
+
+.card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    object-fit: cover !important;
+    width: 100% !important;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text {
+    margin-top: 2px;
+    font-weight: 400;
+}
+
+.card-tittle {
+    margin: 0 !important;
+}
+
+.price {
+    font-weight: 500;
+}
+
+.listing-link {
+    text-decoration: none;
+    /* color: #222222; */
+}
+
+.card-img-overlay {
+    opacity: 0;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2 !important;
+    background-color: white;
+}
+
+/* .btn {
+    background-color: #fe424d !important;
+    border: none;
+} */
+
+.edit-btn {
+    background-color: #fe424d !important;
+    border: none;
+}
+
+.show-img {
+    height: 30vh;
+}
+
+/* Map */
+
+#map {
+    height: 200px;
+    width: 300px;
+}
+
+.tax-info {
+    opacity: 0.7;
+    display: none;
+}
+
+/* .review-container {
+    margin-top: 10px;
+    border: 1px solid black;
+} */
+
+.card-text {
+    margin-top: 4px !important;
+}
+
+@media (max-width : 500px) {
+    .show-card {
+        width: 100% !important;
+    }
+    #map{
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        justify-content: center !important;
+        align-items: center !important;
+        height: 400px !important;
+    }
+
+    .small-screen {
+        width: 100% !important;
+    }
+
+    .map-contain {
+        margin: 0 !important;
+        justify-content: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .body {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+}
+
+.map-contain {
+    margin: 0 !important;
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}

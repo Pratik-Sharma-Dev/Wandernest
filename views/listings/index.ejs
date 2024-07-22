@@ -1,0 +1,163 @@
+<% layout('./layouts/boilerplate') -%>
+
+<style>
+    #filters {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+    .filter{
+        text-align: center;
+        margin-right: 1rem;
+        opacity: 0.7;
+    }
+
+    .filter:hover {
+        opacity: 1;
+        cursor: pointer;
+    }
+
+    .filter p {
+        font-size: 0.8rem;
+    }
+    .filter div i {
+        font-size: 1.2rem;
+    }
+
+    .tax-toggle {
+        border: 1px solid black;
+        border-radius: 1.2rem;
+        height: 3.2rem;
+        padding: 0.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 3rem;
+    }
+    .form-check-label {
+        font-size: 0.9rem;
+    }
+
+    
+</style>
+
+<body>
+    <!-- <h3>All Listings</h3> -->
+    <!-- <form action="/listings/new">
+        <button>Create New Listing</button>
+    </form> -->
+    <div id="filters">
+        <div class="filter">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
+        </div>
+
+        <div class="filter">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p>Room</p>
+        </div>
+
+        <div class="filter">
+            <div><i class="fa-solid fa-mountain"></i></div>
+            <p>Mountains</p>
+        </div>
+
+        <div class="filter">
+            <div><i class="fa-solid fa-flag"></i></div>
+            <p>Country side</p>
+        </div>
+
+        <div class="filter">
+            <div><i class="fa-solid fa-snowflake"></i></div>
+            <p>Arctic</p>
+        </div>
+
+        <div class="filter d-none d-sm-block">
+            <div><i class="fa-solid fa-landmark-dome"></i></div>
+            <p>Historic</p>
+        </div>
+
+        <div class="filter d-none d-sm-block">
+            <div><i class="fa-solid fa-umbrella-beach"></i></div>
+            <p>Beaches</p>
+        </div>
+
+        <div class="filter d-none d-sm-block">
+            <div><i class="fa-solid fa-sailboat"></i></div>
+            <p>Boats</p>
+        </div>
+
+        <div class="filter d-none d-sm-block">
+            <div><i class="fa-solid fa-city"></i></div>
+            <p>Cities</p>
+        </div>
+
+        <div class="tax-toggle d-none d-xl-block d-xxl-none">
+            <div class="form-check form-switch form-check-reverse ">
+                <input class="form-check-input" type="checkbox" role="switch" id="form-check form-switch form-check-reverse">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-2 ch-w">
+        <% for( let listing of allListings) { %>
+            <a href="/listings/<%= listing._id %>" class="listing-link"><div class="card col" >
+                <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem;">
+                <div class="card-img-overlay"></div>
+                <div class="card-body">
+                    <p style="margin: 0;" class="card-text">
+                        <b class="card-tittle"><%= listing.title %></b>
+                        <p class="price">
+                            &#8377;<%= listing.price ? listing.price.toLocaleString("en-IN") : 'N/A' %>/night
+                            <i class="tax-info"> &nbsp; + 18% GST</i>
+                        </p>
+                    </p>
+                </div>
+                </div>
+            </a>
+                <%  } %>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+    'use strict'
+
+     // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation')
+    
+     // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+        }
+    
+        form.classList.add('was-validated')
+        }, false)
+    })
+    })()
+
+    let taxSwitch = document.getElementById("form-check form-switch form-check-reverse")
+    taxSwitch.addEventListener("click", () => {
+        let taxInfo = document.getElementsByClassName('tax-info');
+            for (info of taxInfo) {
+            if(info.style.display != "inline") {
+                info.style.display = "inline"
+            }
+            else {
+                info.style.display = "none"
+            }
+    }});
+</script>
+
+    
+</body>
